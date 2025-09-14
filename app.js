@@ -1,14 +1,32 @@
+//Função pra sotear os números. 
 function sortear() {
-    //Pegando o valor do input quantidade. 
-    let quantidade = document.getElementById('quantidade').value;
-    
-    let de = document.getElementById('de').value;
-    
-    let ate = document.getElementById('ate').value;
-    
-    alert(`Quantidade: ${quantidade}`);
-    alert(`Do número: ${de}`);
-    alert(`Até o número: ${ate}`);
+    //Pegando o valor dos input quantidade. 
+    let quantidade = parseInt(document.getElementById('quantidade').value);
 
+    let de = parseInt(document.getElementById('de').value);
+
+    let ate = parseInt(document.getElementById('ate').value);
+
+    //Array dosnúmeros sorteados.
+    let sorteados = [];
+    //Número que vai receber um valor aleatório.
+    let numero;
+
+    //Laço For para preencher o array sorteados com números aleatórios.
+    for (let i = 0; i < quantidade; i++) {
+        // Atribuindo um valor aleatório 
+        numero = obterNumeroAleatorio(de, ate);
+        //Adicionando o valor np array.
+        sorteados.push(numero);
+    }
+    //Exibindo os valores. 
+    alert(sorteados);
 }
-let btn_reiniciar = document.getElementById("btn_reiniciar");
+
+//Função que retorna um número aleatório.
+function obterNumeroAleatorio(min, max) {
+
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
